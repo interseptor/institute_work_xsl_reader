@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="600.0" prefWidth="900.0" fx:controller="ru.inteh.view.MainViewImpl"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <Pane prefHeight="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <ComboBox fx:id="initialFileChooser" layoutX="149.0" layoutY="14.0" prefWidth="150.0"/>
+                <Label layoutX="50.0" layoutY="18.0" text="Исходный фаил"/>
+            </children>
+        </Pane>
+    </top>
+    <center>
+        <TableView fx:id="table" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1"/>
+                <TableColumn prefWidth="75.0" text="C2"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
