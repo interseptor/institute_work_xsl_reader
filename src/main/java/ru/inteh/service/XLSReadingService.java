@@ -34,14 +34,10 @@ public class XLSReadingService
 
     private List<RowData> readXlsx(String path) throws Exception
     {
-        List<List<String>> fileData = newArrayList();
-
         InputStream ExcelFileToRead = new FileInputStream(WORKING_FOLDER_NAME + File.separator + path);
         XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
 
-        XSSFWorkbook test = new XSSFWorkbook();
-
-        XSSFSheet sheet = wb.getSheetAt(0);
+        XSSFSheet sheet = wb.getSheetAt(1); //todo USED SHEET 1 - NEED CHOOSE CORRECT SHEET
         return convertData(sheet);
     }
 
@@ -50,7 +46,7 @@ public class XLSReadingService
         InputStream ExcelFileToRead = new FileInputStream(WORKING_FOLDER_NAME + File.separator + path);
         HSSFWorkbook wb = new HSSFWorkbook(ExcelFileToRead);
 
-        HSSFSheet sheet = wb.getSheetAt(0);
+        HSSFSheet sheet = wb.getSheetAt(1); //todo USED SHEET 1 - NEED CHOOSE CORRECT SHEET
         return convertData(sheet);
     }
 
@@ -58,9 +54,16 @@ public class XLSReadingService
     {
         List<RowData> result = newArrayList();
 
+        boolean skipFirstRow = true; //TODO TEMP
         boolean isFirstRow = true;
         for (Row row : rows)
         {
+            if (skipFirstRow) //TODO TEMP
+            {
+                skipFirstRow = false;
+                continue;
+            }
+
             List<String> rowData = newArrayList();
             for (Cell cell : row)
             {

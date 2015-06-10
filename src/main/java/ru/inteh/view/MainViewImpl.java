@@ -2,8 +2,10 @@ package ru.inteh.view;
 
 import javafx.beans.value.*;
 import javafx.collections.*;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.MapValueFactory;
+import javafx.scene.input.MouseEvent;
 import ru.inteh.data.RowData;
 
 import java.util.*;
@@ -14,6 +16,11 @@ public class MainViewImpl extends AbstractWidget implements MainView
 {
     public ComboBox<String> initialFileChooser;
     public TableView<Map> table;
+    public TextField forceInput;
+    public TextField heightInput;
+    public TextField depthInput;
+    public TextField widthInput;
+    public Button filterButton;
 
     private Presenter presenter;
 
@@ -26,6 +33,14 @@ public class MainViewImpl extends AbstractWidget implements MainView
             public void changed(ObservableValue observableValue, String oldValue, String newValue)
             {
                 MainViewImpl.this.presenter.fileSelected(newValue);
+            }
+        });
+
+        filterButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>()
+        {
+            public void handle(MouseEvent mouseEvent)
+            {
+                MainViewImpl.this.presenter.filterData(forceInput.getText(), heightInput.getText(), depthInput.getText(), widthInput.getText());
             }
         });
     }

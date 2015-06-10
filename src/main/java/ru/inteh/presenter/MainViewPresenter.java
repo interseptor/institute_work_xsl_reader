@@ -1,7 +1,7 @@
 package ru.inteh.presenter;
 
 import com.google.common.eventbus.*;
-import ru.inteh.event.FileSelectedEvent;
+import ru.inteh.event.*;
 import ru.inteh.model.*;
 import ru.inteh.view.MainView;
 
@@ -50,5 +50,10 @@ public class MainViewPresenter implements MainView.Presenter
     public void fileSelected(String fileName)
     {
         eventBus.post(new FileSelectedEvent(fileName));
+    }
+
+    public void filterData(String force, String height, String depth, String width)
+    {
+        eventBus.post(new FilterDataEvent(force, height, depth, width));
     }
 }

@@ -10,6 +10,8 @@ public interface MainView extends Widget
     {
 
         void fileSelected(String fileName);
+
+        void filterData(String force, String height, String depth, String width);
     }
 
     void setPresenter(Presenter presenter);

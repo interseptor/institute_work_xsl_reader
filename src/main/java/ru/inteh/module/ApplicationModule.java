@@ -25,6 +25,7 @@ public class ApplicationModule extends AbstractModule
         //controllers
         bind(FilesListPreparingController.class).asEagerSingleton();
         bind(FileDataReadController.class).asEagerSingleton();
+        bind(FilterDataController.class).asEagerSingleton();
 
         //presenters
         bind(MainView.Presenter.class).to(MainViewPresenter.class).asEagerSingleton();
