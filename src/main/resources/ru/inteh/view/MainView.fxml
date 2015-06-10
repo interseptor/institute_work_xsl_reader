@@ -4,35 +4,34 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="ru.inteh.view.MainViewImpl">
+<BorderPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.inteh.view.MainViewImpl">
     <top>
         <Pane prefHeight="115.0" prefWidth="900.0" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="39.0" layoutY="18.0" text="Исходный фаил"/>
-                <ComboBox fx:id="initialFileChooser" layoutX="149.0" layoutY="14.0" prefWidth="150.0"/>
+                <Label layoutX="20.0" layoutY="18.0" text="Исходный фаил" />
+                <ComboBox fx:id="initialFileChooser" layoutX="149.0" layoutY="14.0" prefWidth="150.0" />
 
-                <Label layoutX="39.0" layoutY="50.0" text="Номинальное услилие"/>
-                <TextField fx:id="forceInput" layoutX="150.0" layoutY="46.0"/>
+                <Label layoutX="20.0" layoutY="50.0" text="Номинальное усилие" />
+                <TextField fx:id="forceInput" layoutX="150.0" layoutY="46.0" text="0" />
 
-                <Label layoutX="39.0" layoutY="84.0" text="Высота"/>
-                <TextField fx:id="heightInput" layoutX="150.0" layoutY="80.0"/>
+                <Label layoutX="20.0" layoutY="84.0" text="Высота" />
+                <TextField fx:id="heightInput" layoutX="150.0" layoutY="80.0" text="0" />
 
-                <Label layoutX="379.0" layoutY="49.0" text="Длина"/>
-                <TextField fx:id="depthInput" layoutX="435.0" layoutY="80.0"/>
+                <Label layoutX="379.0" layoutY="49.0" text="Длина" />
+                <TextField fx:id="depthInput" layoutX="435.0" layoutY="46.0" text="0" />
 
-                <Label layoutX="378.0" layoutY="84.0" text="Ширина"/>
-                <TextField fx:id="widthInput" layoutX="435.0" layoutY="46.0"/>
+                <Label layoutX="378.0" layoutY="84.0" text="Ширина" />
+                <TextField fx:id="widthInput" layoutX="435.0" layoutY="80.0" text="0" />
 
-                <Button fx:id="filterButton" layoutX="780.0" layoutY="80.0" mnemonicParsing="false" text="Применить фильтр"/>
+                <Button fx:id="filterButton" layoutX="671.0" layoutY="80.0" mnemonicParsing="false" text="Применить фильтр" />
             </children>
         </Pane>
     </top>
     <center>
         <TableView fx:id="table" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn prefWidth="75.0" text="C1"/>
-                <TableColumn prefWidth="75.0" text="C2"/>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
             </columns>
         </TableView>
     </center>

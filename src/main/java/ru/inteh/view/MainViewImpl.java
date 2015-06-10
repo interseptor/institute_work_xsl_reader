@@ -66,19 +66,20 @@ public class MainViewImpl extends AbstractWidget implements MainView
         {
             if (rowData.isHeader())
             {
-                for (String data : rowData.getData())
+                for (int i = 0; i < rowData.getData().size(); i++)
                 {
+                    String data = rowData.getData().get(i);
                     TableColumn<Map, String> tableColumn = new TableColumn<Map, String>(data);
-                    tableColumn.setCellValueFactory(new MapValueFactory<String>(rowData.getData().indexOf(data)));
+                    tableColumn.setCellValueFactory(new MapValueFactory<String>(i));
                     table.getColumns().add(tableColumn);
                 }
             }
             else
             {
                 Map<Integer, String> row = newHashMap();
-                for (String data : rowData.getData())
+                for (int i = 0; i < rowData.getData().size(); i++)
                 {
-                    row.put(rowData.getData().indexOf(data), data);
+                    row.put(i, rowData.getData().get(i));
                 }
                 tableData.add(row);
             }

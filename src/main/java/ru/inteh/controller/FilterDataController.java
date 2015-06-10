@@ -11,10 +11,10 @@ import javax.inject.Inject;
 
 public class FilterDataController
 {
-    public static final String FORCE_COLUMN_NAME = "номинальное услилие";
-    public static final String HEIGHT_COLUMN_NAME = "высота";
-    public static final String DEPTH_COLUMN_NAME = "длина";
-    public static final String WIDTH_COLUMN_NAME = "ширина";
+    public static final String FORCE_COLUMN_NAME = "РЅРѕРјРёРЅР°Р»СЊРЅРѕРµ";
+    public static final String HEIGHT_COLUMN_NAME = "РІС‹СЃРѕС‚Р° (РјРј)";
+    public static final String DEPTH_COLUMN_NAME = "РґР»РёРЅР° (РјРј)";
+    public static final String WIDTH_COLUMN_NAME = "С€РёСЂРёРЅР° (РјРј)";
 
     private static final DoubleValuesComparator DOUBLE_COMPARATOR = new DoubleValuesComparator();
     private static final IntValuesComparator INT_COMPARATOR = new IntValuesComparator();
@@ -42,7 +42,7 @@ public class FilterDataController
     {
         public boolean isSatisfiesCondition(String valueFromCondition, String valueFromData)
         {
-            return Double.valueOf(valueFromCondition) < Double.valueOf(Strings.isNullOrEmpty(valueFromData) ? "0" : valueFromData);
+            return Double.valueOf(valueFromCondition) <= Double.valueOf(Strings.isNullOrEmpty(valueFromData) ? "0" : valueFromData);
         }
     }
 
@@ -50,7 +50,7 @@ public class FilterDataController
     {
         public boolean isSatisfiesCondition(String valueFromCondition, String valueFromData)
         {
-            return Integer.valueOf(valueFromCondition) < Integer.valueOf(Strings.isNullOrEmpty(valueFromData) ? "0" : valueFromData);
+            return Integer.valueOf(valueFromCondition) <= Integer.valueOf(Strings.isNullOrEmpty(valueFromData) ? "0" : valueFromData);
         }
     }
 }
